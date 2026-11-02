@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- الألوان (الوضع الفاتح) ---------- */
+:root {
+  --page: #eff3f1;
+  --card: #ffffff;
+  --soft: #e4ebe8;
+  --ink: #12201d;
+  --muted: #546663;
+  --line: #d0dad6;
+  --primary: #0b5d52;
+  --on-primary: #ffffff;
+  --accent: #8f6410;
+  --mark-bg: #f5e1ae;
+  --mark-ink: #352600;
+  --ok: #1d7745;
+  --warn: #b3511c;
+  /* ألوان فروع الخريطة الذهنية */
+  --hue-1: #0b5d52;
+  --hue-2: #8f6410;
+  --hue-3: #34509e;
+  --hue-4: #8e3b53;
+  --hue-5: #586a1c;
+}
+
+/* ---------- الوضع الداكن: يتبع إعداد الجهاز ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --page: #0d1513;
+    --card: #15201e;
+    --soft: #1d2b28;
+    --ink: #e6eeeb;
+    --muted: #9aaea9;
+    --line: #2a3b37;
+    --primary: #5cc4b0;
+    --on-primary: #062019;
+    --accent: #e0b25a;
+    --mark-bg: #4b3b13;
+    --mark-ink: #ffe9b0;
+    --ok: #5fcb8b;
+    --warn: #f29b63;
+    --hue-1: #5cc4b0;
+    --hue-2: #e0b25a;
+    --hue-3: #92abf2;
+    --hue-4: #e890a8;
+    --hue-5: #b7ce6b;
+  }
+}
+
+body {
+  @apply bg-page font-ui text-ink leading-relaxed;
+}
+
+/* ---------- أصناف جاهزة نكررها في الموقع ---------- */
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-card p-5;
+  }
+  .btn {
+    @apply rounded-xl border border-line bg-card px-4 py-2 font-medium transition hover:border-primary;
+  }
+  .btn-primary {
+    @apply border-primary bg-primary text-on-primary;
+  }
+  .chip {
+    @apply rounded-full border border-line bg-card px-4 py-1 text-sm transition hover:border-primary;
+  }
+  .chip-active {
+    @apply border-ink bg-ink text-page;
+  }
+  /* نص الآية بخط المصحف */
+  .mushaf {
+    @apply font-quran text-2xl leading-[2.3];
+  }
+  .page-title {
+    @apply mb-2 font-display text-4xl font-bold;
+  }
+  .page-lead {
+    @apply mb-6 max-w-3xl text-muted;
+  }
+}
