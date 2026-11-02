@@ -1,6 +1,7 @@
 import './globals.css';
 import { Amiri, Amiri_Quran, IBM_Plex_Sans_Arabic } from 'next/font/google';
 import NavBar from '@/components/NavBar';
+import ScrollToTop from '@/components/ScrollToTop';
 
 // الخطوط: تتحول إلى متغيرات CSS ثم يستعملها tailwind.config.js
 const fontUi = IBM_Plex_Sans_Arabic({
@@ -32,7 +33,10 @@ export default function RootLayout({ children }) {
     <html lang="ar" dir="rtl" className={fonts}>
       <body>
         <NavBar />
-        <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
+        <main className="mx-auto max-w-6xl px-4 py-8 relative">
+          {children}
+          <ScrollToTop />
+          </main>
       </body>
     </html>
   );
